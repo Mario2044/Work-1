@@ -1,9 +1,18 @@
-import { Routes, Route } from 'react-router-dom';
-import { useRef } from 'react';
+import Content from "./Content/Content";
+import Menu from "./Menu/Menu";
+import "./Home.css";
+import { Grid } from '@mui/material';
 
 const Home = () => {
   return (
-    <h1>hello </h1>
+    <Grid container spacing={2}>
+      <Grid item xs={3} xl={2}>
+        <Menu></Menu>
+      </Grid>
+      <Grid item xs={9} xl={10}>
+        <Content />
+      </Grid>
+    </Grid>
   );
 };
 

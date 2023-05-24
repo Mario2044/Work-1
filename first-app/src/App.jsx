@@ -1,14 +1,22 @@
 
-import './App.css';
-import { BrowserRouter } from 'react-router-dom';
-import ShowRouter from './routers/routers';
-import { useRef } from 'react';
+import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import ShopRouters from "./ShopRouters";
+import { useEffect } from "react";
+import { getProductsFromBE } from './store/products/productsRequest';
+import {useDispatch} from 'react-redux';
 
 function App() {
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    getProductsFromBE(dispatch);
+  },[dispatch]) 
+
   return (
-    <BrowserRouter>
-      <ShowRouter/>
-    </BrowserRouter>
+      <BrowserRouter>
+        <ShopRouters />
+      </BrowserRouter> 
   );
 }
 
